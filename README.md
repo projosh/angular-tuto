@@ -83,5 +83,32 @@ on pourra agir cette action avec une action de clique
 
 Le onNotify() method ressemble à la methode share
 
-cela mettra à jour le produit cela va notifier que le produit à bien été vendu
+cela mettra à jour le produit cela va notifier que le produit à bien été vendu.
+
+On copie colle dans le terminal
+ng generate component product-details
+
+le RouteurLink
+Lorsqu’il est appliqué à un élément dans un modèle, 
+fait de cet élément un lien qui lance la navigation vers un itinéraire
+et va generer un id et ainsi personnalisé 
+
+En cliquant on va se trouver sur une autre page
+
+On va importer ActibvatedRoute de angular/router
+
+Dans la classe class ProductDetailsComponent
+on a injecté un produit 
+
+Le constructor doit être privé pour
+qu'il ne soit pas accessible n'importe où
+
+ngOnInit() est une methode qui va extraire le productId 
+
+<div *ngIf="product"> c'est une condition si 
+le nom du produit, son prix et sa description 
+alors le produit sera affiché. il transforme les chaines 
+de caractére et les transformes afin d'afficher le contenu
+
+ 
 
