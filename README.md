@@ -110,5 +110,74 @@ le nom du produit, son prix et sa description
 alors le produit sera affiché. il transforme les chaines 
 de caractére et les transformes afin d'afficher le contenu
 
+ng generate service cart
+Cela creer des repertoires
+cart.service.spec.ts
+cart.service.ts
+
+on a importé le composant product et
+esporté la class cartservice
+
+items: Product[] = []; cela va permettre de 
+ajouter des articles au panier, retourner des articles 
+de panier et effacer les articles du panier.
+
+addToCart(product: Product) { 
+    this.items.push(product);
+
+cela permet de rajouter un produit
+
+import { CartService } from '../cart.service';
+
+importer le dossier cart.service
+
+on a rajouter un nouveau constructor cartservice en plus 
+de activateroute
+
+constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService
+
+addToCart() va lier l'événement à la méthode 
+et l'ajouter au panier 
+
+
+nouveau panier
+
+
+generer un nouveau composant appeler cart
+avec cette ligne de commande 
+
+ng generate component cart et va creer 
+
+ces fichiers : 
+
+CREATE src/app/cart/cart.component.html (19 bytes)
+CREATE src/app/cart/cart.component.spec.ts (612 bytes)
+CREATE src/app/cart/cart.component.ts (267 bytes)
+CREATE src/app/cart/cart.component.css (0 bytes
  
+RouterLink 
+permet d'intercepter l'événement click 
+sur les liens et de changer de "route" sans recharger toute l'application.
+
+On injecte un nouveau constructor en privé CartService
+constructor(
+    private cartService: CartService
+
+on rappel notre constructor 
+avec cette commande qui va definir notre item
+items = this.cartService.getItems();
+
+On injecte ce code dans notre fichier cart.component.html
+
+<h3>Cart</h3>
+
+<div class="cart-item" *ngFor="let item of items">
+  <span>{{ item.name }}</span>
+  <span>{{ item.price | currency }}</span>
+</div>
+
+Cela va permettre de boucler avec une boucle for entre les items
+entre les nom et les prix.
 
