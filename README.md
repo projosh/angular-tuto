@@ -25,7 +25,7 @@ comme un "addevenlistenner"
 lorsqu'on clique sur share il y'a un popup qui indique le produit à bien été partager.
 
 
-##Transmettre des données à un composant enfant.
+### Transmettre des données à un composant enfant.
 
 On doit ouvrir un nouveau terminal.
 
