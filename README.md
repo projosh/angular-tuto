@@ -3,33 +3,33 @@ Il faut mettre à jour le dossier product-list
 qui va afficher une liste de produit utiliserez des données produit prédéfinies 
 à partir de products.ts
 
-On a rajouté une boucle for of qui va boucler sur une variable produit qui appelle une liste de produits
-elle va répeter sur chaque produit de la liste
+On a rajouté une boucle for of qui va boucler sur une variable produit qui appelle une liste de produit.
+elle va répeter sur chaque produit de la liste.
 
-{{product-name}} est une déclaration elle va permettre de rendre une valeur au texte
+{{product-name}} est une déclaration elle va permettre de rendre 
+une valeur au texte
 
-{{product-name}} va charger et afficher le nom dans une liste 
+{{product-name}} va charger et afficher le nom dans une liste. 
 
 Chaque produit doit être englobé d'un lien <a> 
 
 Pour personnaliser les titres on utlisera les crochets [] a[title]
 
-On rajoute la description du produit avec une balise p 
+On rajoute la description du produit avec une balise <p> 
 
 On met une condition *ngif qui est une condition si il montre ou pas
 
 Le bouton user va permettre de partager le produit avec l'action du bouton click
-comme un addevenlistenner 
+comme un "addevenlistenner" 
 
-lorsqu'on clique sur share il y'a un popup qui indique le produit à bien été partager
+lorsqu'on clique sur share il y'a un popup qui indique le produit à bien été partager.
 
 
+##Transmettre des données à un composant enfant.
 
-##Transmettre des données à un composant enfant
+On doit ouvrir un nouveau terminal.
 
-On doit ouvrir un nouveau terminal
-
-Dans ce terminal on va copier coller ce code 
+Dans ce terminal on va copier coller ce code.
 
 ng generate component product-alerts
 
@@ -39,7 +39,7 @@ product-alerts.component.ts
 product-alerts.component.html
 product-alerts.component.css
 
-quand on ouvre le fichier ts 
+Quand on ouvre le fichier ts 
 product-alerts.component.ts
 
 @Component() indique la classe qui doit suivre et importe un comportement
@@ -95,7 +95,7 @@ et va generer un id et ainsi personnalisé
 
 En cliquant on va se trouver sur une autre page
 
-On va importer ActibvatedRoute de angular/router
+On va importer ActivatedRoute de angular/router
 
 Dans la classe class ProductDetailsComponent
 on a injecté un produit 
@@ -141,11 +141,10 @@ constructor(
 addToCart() va lier l'événement à la méthode 
 et l'ajouter au panier 
 
+###nouveau panier
 
-nouveau panier
 
-
-generer un nouveau composant appeler cart
+Generer un nouveau composant appeler cart
 avec cette ligne de commande 
 
 ng generate component cart et va creer 
@@ -158,7 +157,7 @@ CREATE src/app/cart/cart.component.ts (267 bytes)
 CREATE src/app/cart/cart.component.css (0 bytes
  
 RouterLink 
-permet d'intercepter l'événement click 
+Permet d'intercepter l'événement click 
 sur les liens et de changer de "route" sans recharger toute l'application.
 
 On injecte un nouveau constructor en privé CartService
@@ -180,4 +179,64 @@ On injecte ce code dans notre fichier cart.component.html
 
 Cela va permettre de boucler avec une boucle for entre les items
 entre les nom et les prix.
+
+
+Configurer AppModulepour utiliserHttpClient
+
+configurer votre application pour utiliser HttpClientModule.
+
+il va se servir d'un fichier json pour rechercher les informations
+
+on rajoute un nouveau constructor 
+
+  constructor(
+    private http: HttpClient
+  ) {}
+
+HttpClient est une requête qui va attendre une reponse
+
+On configure cartservice avec les délais de livraison
+
+On utilisera la méthode get pour obtenir les informations 
+
+ getShippingPrices() {
+    return this.http.get<{type: string, price: number}[]>
+
+Il retourne la chaine de caractére price 
+
+Copie colle dans le terminal
+ng generate component shipping
+cela generer un composant shipping
+
+Cela va creer des composant shipping
+
+On rajouter dans le app.module.ts
+
+le chemin est mis automatiquement
+{ path: 'shipping', component: ShippingComponent },
+
+et aussi la declarations 
+  ShippingComponent
+
+Dans le composant shipping.component.ts
+
+on va rajouter un constructor private cartService
+
+Dans le composant shipping.component.html 
+
+<h3>Shipping Prices</h3>
+
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
+
+On a une boucle for qui va nous indiquer que tant 
+qu'on clique sur buy alors il va boucler sur la variable shipping
+de shippingcost
+
+pour les objets (item) on aura aussi une boucle for 
+pour nos item name et item price
+
+
 
