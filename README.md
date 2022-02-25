@@ -238,5 +238,27 @@ de shippingcost
 pour les objets (item) on aura aussi une boucle for 
 pour nos item name et item price
 
+Importer 
+import { FormBuilder } from '@angular/forms';
 
+On va injecter un nouveau constructor formBuilder
+ 
+checkoutForm = this.formBuilder.group({ 
+
+va permet de vérifier le formulaire.
+
+onSubmit est une methode qui va nous envoyer le formulaire 
+
+### creation du formulaire de payement
+
+On injecte ce code : 
+
+<form [formGroup]="checkoutForm">
+
+  <button class="button" type="submit">Purchase</button>
+
+</form>
+
+on va rajouter ngSubmit qui va permettre d'envoyer le formulaire
+via angular
 
