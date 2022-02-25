@@ -70,7 +70,7 @@ qui va declarer ces composants
   ],
 
 
-###Transmettre des données à un composant parent
+### Transmettre des données à un composant parent
 
 EventEmitter est un module qui permet de partager des données entre les composants à l’aide de méthodes. 
 
@@ -141,7 +141,7 @@ constructor(
 addToCart() va lier l'événement à la méthode 
 et l'ajouter au panier 
 
-###nouveau panier
+### nouveau panier
 
 
 Generer un nouveau composant appeler cart
